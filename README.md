@@ -4,14 +4,14 @@
 
 ### Используемые технологии:
 
-React, Styled Components
+React, Styled Components.
 
- <img src="/img.png"  height="600" >
+<img src="/img.png"  height="600" >
 
 ### `npm i`
 
-Установка зависимостей
+Установка зависимостей.
 
 ### `npm start`
 
-Запуск приложения
+Запуск приложения.
