@@ -56,8 +56,6 @@ const App = () => {
 
   const dropCardHandler = (e, board) => {
     e.preventDefault();
-    // if (board.items.length !== 0) return; // фиксит баг с дублированием
-
     board.items.push(currentItem);
     const currentIndex = currentBoard.items.indexOf(currentItem);
     currentBoard.items.splice(currentIndex, 1);
