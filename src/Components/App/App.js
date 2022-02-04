@@ -32,12 +32,15 @@ const App = () => {
     e.preventDefault();
   }
 
-  const dropHandler = (e, board, item) => {
-    e.preventDefault();
-    const currentIndex = currentBoard.items.indexOf(currentItem); //индекс в массиве текущей картчоки
-    currentBoard.items.splice(currentIndex, 1); 
+  const dropHandler = (e, board, item) => { 
+    // e.preventDefault();
+    e.stopPropagation() // фиксит баг Прекращает дальнейшую передачу текущего события.
+    const currentIndex = currentBoard.items.indexOf(currentItem);
+    currentBoard.items.splice(currentIndex, 1);
     const dropIndex = board.items.indexOf(item);
-    board.items.splice(dropIndex + 1, 0, currentItem);
+    board.items.splice(dropIndex , 0, currentItem);
+    // поменял dropIndex + 1 на dropIndex. Теперь элементы ставтся по порядку
+  
 
     setBoards(boards.map(b => { 
       if (b.id === board.id) {
@@ -52,10 +55,13 @@ const App = () => {
   }
 
   const dropCardHandler = (e, board) => {
-    // e.preventDefault();
+    e.preventDefault();
+    // if (board.items.length !== 0) return; // фиксит баг с дублированием
+
     board.items.push(currentItem);
     const currentIndex = currentBoard.items.indexOf(currentItem);
     currentBoard.items.splice(currentIndex, 1);
+    
     setBoards(boards.map(b => {
       if (b.id === board.id) {
         return board
