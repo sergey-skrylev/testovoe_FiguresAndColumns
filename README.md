@@ -6,7 +6,7 @@
 
 React, Styled Components.
 
-<img src="/img.png"  height="420" >
+<img src="/img.png"  height="400" >
 
 ### `npm i`
 
